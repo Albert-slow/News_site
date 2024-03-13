@@ -29,7 +29,7 @@ class ArticleModel(models.Model):
     article_category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE)
     article_tag = models.ForeignKey(TagModel, on_delete=models.CASCADE)
     article_news = models.TextField()
-    article_image = models.FileField(upload_to='product_images')
+    article_image = models.FileField(upload_to='news_images')
     article_author = models.CharField(max_length=50, help_text='ФИО автора')
     article_created_at = models.DateTimeField(auto_now_add=True)
 

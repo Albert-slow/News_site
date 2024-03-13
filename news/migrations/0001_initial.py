@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('article_title', models.CharField(help_text='Тут добавьте название статьи', max_length=100)),
                 ('article_news', models.TextField()),
-                ('article_image', models.FileField(upload_to='product_images')),
+                ('article_image', models.FileField(upload_to='news_images')),
                 ('article_author', models.CharField(help_text='ФИО автора', max_length=50)),
                 ('article_created_at', models.DateTimeField(auto_now_add=True)),
                 ('article_category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news.categorymodel')),
