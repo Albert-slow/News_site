@@ -17,6 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.conf.urls.static import static
+from django.conf import settings
+from news import views
+from news.views import home_page
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", home_page, name='home'),
+    path('search/', views.SearchResultsView.as_view(), name='search'),
+    path("articles_list/", views.NewsListView.as_view(), name='articles_list'),
+    path('<int:pk>/article/', views.NewsDetailView.as_view(), name='article'),
+    path("create/", views.NewsCreateView.as_view(), name='create'),
+    path("edit/<int:pk>/", views.NewsUpdateView.as_view(), name='edit'),
+    path("<int:pk>/delete/", views.NewsDeleteView.as_view(), name='delete'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root='settings.MEDIA_ROOT')
+urlpatterns += static(settings.STATIC_URL, document_root='settings.STATIC_ROOT')

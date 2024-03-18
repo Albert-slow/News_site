@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Articles list</title>
+</head>
+<body>
+<ul>
+    {% for article in articles %}
+    <li>
+        <h2><a href="{% url 'article' article.pk %}">{{ article.article_title }}</a></h2>
+    </li>
+    {% endfor %}
+</ul>
+    <a href="{% url 'create' %}">Add new article</a>
+</body>
+</html>

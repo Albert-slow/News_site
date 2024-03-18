@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Edit article</title>
+</head>
+<body>
+    <form method="post"enctype="multipart/form-data">
+        {% csrf_token %}
+<!--        <p>-->
+<!--            <label>Введите название статьи</label><br>-->
+<!--            <input type="text" name="article_title" value="{{article.article_title}}" class="form-control" />-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label>Введите категорию</label><br>-->
+<!--            <input type="text" name="article_category" value="{{categories.category_title}}" />-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label>Введите тэг</label><br>-->
+<!--            <input type="text" name="article_tag" value="{{Tags.tag_title}}" />-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label>Введите статью</label><br>-->
+<!--            <input type="text" name=article_news"  style="width:400px; height:300px;"-->
+<!--                value="{{article.article_news}}" />-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label>Прикрепите фото</label><br>-->
+<!--            <input type="file" name="article_image" value="{{article.article_image}}" src="{{ article.article_image.url }}" />-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label>Введите Ф.И.О. автора</label><br>-->
+<!--            <input type="text" name="article_author" value="{{article.article_author}}" />-->
+<!--        </p>-->
+        {{form.as_p }}
+        <button type="submit" value="Сохранить">Edit article</button>
+    </form>
+</body>
+</html>

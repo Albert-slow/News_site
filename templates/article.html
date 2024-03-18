@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+</head>
+<body>
+    <h1>{{ article.article_title }}</h1>
+    <img src="{{ article.article_image.url }}" style="width: 600px" alt="...">
+    <h3>{{ article.article_categories }}</h3>
+    <p>{{ article.article_news }}</p>
+    <h4>{{ article.article_author }}</h4>
+    <h4>{{ article.article_created_at }}</h4>
+
+</body>
+</html>

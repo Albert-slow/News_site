@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+</head>
+<body>
+<ul>
+  {% for article in article_list %}
+    <li>
+      {{ article.article_title }}
+    </li>
+  {% endfor %}
+</ul>
+</body>
+</html>

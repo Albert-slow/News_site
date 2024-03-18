@@ -1,10 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="utf-8" />
+    <title>Albert's news site</title>
 </head>
 <body>
-$END$
+
+    {% if categories.count > 0 %}
+        <h2>Список категорий:</h2>
+
+        <table>
+            {% for category in categories %}
+            <ul>
+                <li>
+                 <h4><a href="{% url 'article' category.pk %}">{{ category.category_title }},
+                     {{ category.created_at }}</a>
+                 </h4>
+                </li>
+            </ul>
+            {% endfor %}
+        </table>
+    {% endif %}
+    {% if articles.count > 0 %}
+    <form action="{% url 'search' %}" method="get">
+        <input name="q" type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+        <h2>Список статей</h2>
+
+        <table>
+            <thead><th>id</th><th>article_title</th><th>article_category</th>
+            <th>article_tag</th>
+            <th>article_news</th>
+            <th>article_image</th>
+            <th>article_author</th>
+            </thead>
+            {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.article_title }}</td>
+                <td>{{ article.article_category }}</td>
+                <td>{{ article.article_tag }}</td>
+                <td>{{ article.article_news }}</td>
+                <td>{{ article.article_image }}</td>
+                <td>{{ article.article_author }}</td>
+                <td><a href="edit/{{article.id}}">Изменить</a> | <a href="delete/{{article.id}}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
 </body>
 </html>
